@@ -1,0 +1,2 @@
+recipiente = "Papel";
+alert(recipiente)
