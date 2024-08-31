@@ -1,2 +1,0 @@
-recipiente = "Papel";
-alert(recipiente)
