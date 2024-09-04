@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 const recetas = lista.querySelectorAll("li");
 
                 recetas.forEach(receta => {
-                    const nombreReceta = receta.textContent.toLowerCase();
+                    const tituloReceta = receta.querySelector("h3").textContent.toLowerCase();
 
-                    if (nombreReceta.includes(consulta)) {
+                    if (tituloReceta.includes(consulta)) {
                         receta.style.display = "list-item";
                         tieneCoincidencia = true;
                         encontrado = true;
@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Restablece el buscador
         campoBusqueda.value = "";
 
-        //Esto elimina los encabezados y las listas que no pertenecen a la busqueda del usuario , por siaca.
         const encabezados = document.querySelectorAll("h2");
         encabezados.forEach(encabezado => {
             const lista = encabezado.nextElementSibling;
@@ -63,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    campoBusqueda.addEventListener("input", realizarBusqueda);
+    // Eliminamos el evento que dispara la búsqueda al escribir en el campo
+    // campoBusqueda.removeEventListener("input", realizarBusqueda);
 
     campoBusqueda.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
